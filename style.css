@@ -1,0 +1,176 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Main Layout Container */
+.main-container {
+    display: flex;
+    gap: 50px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Legend (Showcase) */
+.showcase {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.showcase li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+.showcase li small {
+    margin-left: 5px;
+}
+
+/* Seat Base Style */
+.seat {
+    background-color: #bcbcbc; /* Available Color */
+    height: 40px;
+    width: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* --- CHANGE 1: Seat Name Visibility --- */
+    font-size: 14px; /* Increased font size slightly */
+    font-weight: bold; /* Made text bolder to read easily */
+    color: #333;     /* Changed from 'transparent' to dark gray so it's visible */
+    /* -------------------------------------- */
+    transition: all 0.2s ease; /* Changed 'transform' to 'all' for smoother color transition */
+}
+
+/* --- CHANGE 2: Distinct Hover Color --- */
+.seat:not(.booked):hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    /* Changed hover color to a light blue to suggest selectability */
+    background-color: #b4eff5; 
+    box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Added a small shadow for depth */
+}
+/* -------------------------------------- */
+
+/* State Colors */
+.seat.selected {
+    background-color: #6feaf6; /* Selected Color (Cyan) */
+    color: #000; /* Ensure text is black on selected */
+}
+
+.seat.booked {
+    background-color: #ff6b6b; /* Booked Color (Red) */
+    color: #fff; /* Make text white on booked seats for contrast */
+    cursor: not-allowed;
+}
+
+/* Bus Grid Layout */
+.seat-layout {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 40px repeat(2, 1fr); /* 2 seats, aisle, 2 seats */
+    gap: 10px;
+}
+
+/* Aisle spacer logic */
+/* Important fix from previous question: Push the 3rd seat to the 4th column */
+.seat-layout div:nth-of-type(4n-1) {
+    grid-column: 4; 
+}
+
+.driver-area {
+    width: 100%;
+    background-color: #ddd;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #333;
+}
+
+/* Summary Section */
+.booking-summary {
+    width: 250px;
+    padding: 20px;
+    border-left: 2px solid #eee;
+}
+
+.booking-summary h2 {
+    margin-bottom: 20px;
+}
+
+.booking-summary p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+span {
+    font-weight: bold;
+    color: #333;
+}
+
+#book-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+#book-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .booking-summary {
+        border-left: none;
+        border-top: 2px solid #eee;
+        width: 100%;
+        text-align: center;
+    }
+}

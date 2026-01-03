@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Seat Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Online Bus Seat Booking</h1>
+    </header>
+
+    <div class="main-container">
+        <div class="bus-container">
+            <div class="driver-area">Front of Bus / Driver</div>
+            
+            <ul class="showcase">
+                <li>
+                    <div class="seat"></div>
+                    <small>Available</small>
+                </li>
+                <li>
+                    <div class="seat selected"></div>
+                    <small>Selected</small>
+                </li>
+                <li>
+                    <div class="seat booked"></div>
+                    <small>Booked</small>
+                </li>
+            </ul>
+
+            <div class="seat-layout">
+                <div class="seat" data-id="1A">1A</div>
+                <div class="seat" data-id="1B">1B</div>
+                <div class="seat booked" data-id="1C">1C</div>
+                <div class="seat booked" data-id="1D">1D</div>
+
+                <div class="seat" data-id="2A">2A</div>
+                <div class="seat" data-id="2B">2B</div>
+                <div class="seat" data-id="2C">2C</div>
+                <div class="seat" data-id="2D">2D</div>
+
+                <div class="seat" data-id="3A">3A</div>
+                <div class="seat booked" data-id="3B">3B</div>
+                <div class="seat" data-id="3C">3C</div>
+                <div class="seat" data-id="3D">3D</div>
+
+                <div class="seat" data-id="4A">4A</div>
+                <div class="seat" data-id="4B">4B</div>
+                <div class="seat" data-id="4C">4C</div>
+                <div class="seat" data-id="4D">4D</div>
+                
+                <div class="seat" data-id="5A">5A</div>
+                <div class="seat" data-id="5B">5B</div>
+                <div class="seat" data-id="5C">5C</div>
+                <div class="seat" data-id="5D">5D</div>
+            </div>
+        </div>
+
+        <div class="booking-summary">
+            <h2>Booking Summary</h2>
+            <p>Selected Seats: <span id="selected-seats-display">None</span></p>
+            <p>Count: <span id="count">0</span></p>
+            <p>Total Fare: $<span id="total">0</span></p>
+            <button id="book-btn">Confirm Booking</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
